@@ -40,13 +40,13 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
     return (
         <div
             onClick={handleBackdropClick}
-            className='fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-xs bg-black/40' >
-            <div className='w-lg rounded-2xl bg-[#111] px-3 md:px-6  py-8 '>
+            className='fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-xs bg-black/40 ' >
+            <div className='w-lg rounded-2xl mx-2  bg-[#111] px-3 md:px-6 py-12 sm:py-8 relative '>
 
                 <div className=' flex flex-col '>
                     <form
                         onSubmit={handleSubmit(handleFormSubmit)}
-                        className='flex flex-col gap-y-7'>
+                        className='flex flex-col gap-y-4 xl:gap-y-8'>
                         <div className='flex w-full gap-3'>
                             <img src={user} alt="" className='w-13 h-13 rounded-full' />
                             <div>
@@ -106,6 +106,11 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
                             </button>
                         </div>
                     </form>
+                </div>
+                <div 
+                onClick={() => setIsFormOpen(false)}
+                className='absolute right-3 text-2xl text-gray-400 top-1'>
+                    <i className="ri-close-line cursor-pointer"></i>
                 </div>
             </div>
         </div>

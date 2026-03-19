@@ -12,7 +12,6 @@ const posts = [
     id: nanoid(),
     name: "Vikram Singh",
     caption: "Consistency is key. 3 months of regular gym and high-protein diet is finally showing results. Staying focused on the bulk! 💪 #FitnessJourney #GymRat",
-    image: "https://images.unsplash.com/photo-1583454110551-21f2fa200181?q=80&w=1000&auto=format&fit=crop",
     role: "Data Scientist",
     location: "Bangalore, KA"
   },

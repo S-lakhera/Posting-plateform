@@ -3,10 +3,14 @@ import Navbar from './components/Navbar'
 import Post from './components/Post'
 import Addpost from './components/Addpost'
 import posts from './data/data.js'
+import Comment from './components/Comment.jsx'
 
 const App = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [editingPost, setEditingPost] = useState(null)
+  const [commentingPost, setCommentingPost] = useState(null)
+  const [isCommentBoxOpen,setIsCommentBoxOpen] = useState(false)
+
 
   const [postArr, setPostArr] = useState(() => {
     const data = localStorage.getItem("posts");
@@ -34,6 +38,12 @@ const App = () => {
     setIsFormOpen(true)
   }
 
+  const handleCommentBox = (id) => {
+    setIsCommentBoxOpen(!isCommentBoxOpen)
+    let post = postArr.find((p) => p.id === id)
+    setCommentingPost(post)
+  }
+
   return (
     <>
       <Navbar addPost={addPost} />
@@ -46,11 +56,13 @@ const App = () => {
               post={post}
               deletePost={deletePost}
               updatePost={updatePost}
+              handleCommentBox={handleCommentBox}
             />
 
           ))
         }
       </div>
+
       <div className={isFormOpen ? "visible" : "hidden"}>
         <Addpost
           key={editingPost?.id || "new"}
@@ -59,6 +71,13 @@ const App = () => {
           editingPost={editingPost}
         />
       </div>
+{/* 
+      <div >
+        <Comment
+          commentingPost={commentingPost}
+          setIsCommentBoxOpen={setIsCommentBoxOpen}
+        />
+      </div> */}
     </>
   )
 }

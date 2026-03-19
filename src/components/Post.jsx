@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import user from '../assets/user.jpg'
 import Addpost from './Addpost'
+import Comment from './Comment'
 
-const Post = ({ post,deletePost,updatePost}) => {
+const Post = ({ post,deletePost,updatePost,handleCommentBox}) => {
   const [isLiked, setIsLiked] = useState(false)
   
   return (
@@ -42,7 +43,11 @@ const Post = ({ post,deletePost,updatePost}) => {
             :
             <i className="ri-heart-line active:scale-80 transition-transform duration-150 hover:scale-110 " onClick={() => setIsLiked(true)}></i>
           }
-          <i className="ri-save-line active:scale-80 transition-transform duration-150 hover:scale-110"></i>
+
+          <i className="ri-save-line active:scale-80 transition-transform duration-150 hover:scale-110"
+          onClick={() => handleCommentBox(post.id)}
+          ></i>
+
           <i className="ri-pencil-ai-line active:scale-80 transition-transform duration-150 hover:scale-110 "
             onClick={() => updatePost(post)}
           ></i>
