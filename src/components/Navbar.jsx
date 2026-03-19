@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import logo from '../assets/favicon.png'
 
 const Navbar = ({ addPost }) => {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
 
     useEffect(() => {
@@ -10,9 +10,9 @@ const Navbar = ({ addPost }) => {
             const currentScrollY = window.scrollY;
 
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsVisible(false)
+                setIsNavbarVisible(false)
             } else {
-                setIsVisible(true)
+                setIsNavbarVisible(true)
             }
 
             setLastScrollY(currentScrollY)
@@ -26,7 +26,7 @@ const Navbar = ({ addPost }) => {
     }, [lastScrollY])
 
   return (
-    <div className={`w-full  px-5 md:px-15  py-3 sm:py-1 flex justify-between pt-2 fixed ${isVisible ? 'translate-y-0' : '-translate-y-full'} backdrop-blur-sm`}>
+    <div className={`w-full  px-5 md:px-15  py-3 sm:py-1 flex justify-between pt-2 fixed ${isNavbarVisible ? 'translate-y-0' : '-translate-y-full'} backdrop-blur-sm`}>
       <div className='w-10  md:w-12 flex  overflow-hidden items-center'>
         <img src={logo} alt="" className=' w-full rounded-4xl' />
       </div>
