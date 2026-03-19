@@ -58,7 +58,7 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
                                     className='w-full bg-black/30 outline-none pl-5 py-2 rounded-lg text-xl' placeholder='Your Name'
                                 />
                                 {errors.name && <p className='px-2 text-red-500'>{errors.name.message}</p>}
-                                <p className='tetx-xs text-slate-400'>Post anything</p>
+                                <p className='tetx-xs text-slate-400 px-3'>Visible to everyone</p>
                             </div>
                         </div>
                         <div className='text-left  px-1 flex flex-col gap-y-2'>

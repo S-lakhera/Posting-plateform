@@ -1,9 +1,32 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import logo from '../assets/favicon.png'
 
 const Navbar = ({ addPost }) => {
+  const [isVisible, setIsVisible] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
+
+    useEffect(() => {
+        const controlNavbar = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false)
+            } else {
+                setIsVisible(true)
+            }
+
+            setLastScrollY(currentScrollY)
+        };
+
+        window.addEventListener('scroll', controlNavbar)
+
+        return () => {
+            window.removeEventListener('scroll', controlNavbar);
+        }
+    }, [lastScrollY])
+
   return (
-    <div className='w-full  px-5 md:px-15  py-3 sm:py-1 flex justify-between mt-1'>
+    <div className={`w-full  px-5 md:px-15  py-3 sm:py-1 flex justify-between pt-1 fixed ${isVisible ? 'translate-y-0' : '-translate-y-full'} backdrop-blur-sm`}>
       <div className='w-full md:w-12 flex  overflow-hidden items-center'>
         <img src={logo} alt="" className=' w-full rounded-4xl' />
       </div>
@@ -11,7 +34,7 @@ const Navbar = ({ addPost }) => {
       <div className='w-3/5 flex justify-center mt-1 '>
         <div 
         onClick={()=> addPost()}
-        className='w-full md:w-3/5 lg:w-2/5  flex items-center px-4 rounded-2xl border py-2 text-gray-400 cursor-text bg-[#111] ml-8'
+        className='w-full md:w-3/5 lg:w-2/5  flex items-center px-4 rounded-2xl border py-2 text-gray-300 cursor-text  ml-8'
         >
           <i className="ri-pencil-fill pr-4"></i>
           Create a Post
