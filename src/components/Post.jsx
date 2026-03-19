@@ -34,9 +34,9 @@ const Post = ({ post,deletePost,updatePost}) => {
       <div className='w-full px-5 pt-1'>
         <div className='flex w-full text-xl bg-[#030303] rounded-2xl justify-around py-1'>
           {isLiked ?
-            <i className="ri-heart-fill active:scale-80 transition-transform duration-150 hover:scale-110 " onClick={() => setIsLiked(false)}></i>
+            <i className="ri-heart-fill active:scale-80 transition-transform duration-150 hover:scale-110 text-red-600" onClick={() => setIsLiked(false)}></i>
             :
-            <i className="ri-heart-line active:scale-80 transition-transform duration-150 hover:scale-110" onClick={() => setIsLiked(true)}></i>
+            <i className="ri-heart-line active:scale-80 transition-transform duration-150 hover:scale-110 " onClick={() => setIsLiked(true)}></i>
           }
           <i className="ri-save-line active:scale-80 transition-transform duration-150 hover:scale-110"></i>
           <i className="ri-pencil-ai-line active:scale-80 transition-transform duration-150 hover:scale-110 "
