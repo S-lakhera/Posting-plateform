@@ -6,7 +6,9 @@ const Post = ({ post,deletePost,updatePost}) => {
   const [isLiked, setIsLiked] = useState(false)
   
   return (
-    <div className='flex flex-col px-3 py-2  items-center border-gray-400/50 border rounded-2xl overflow-hidden shadow-[0_1px_10px_rgb(255,255,255,0.2)] hover:shadow-[0_1px_10px_rgb(255,255,255,0.25)] transition-shadow duration-200 cursor-pointer max-h-[90vh]'>
+    <div 
+    onDoubleClick={() => setIsLiked((prev) => !prev)}
+    className='flex flex-col px-3 py-2  items-center border-gray-400/50 border rounded-2xl overflow-hidden shadow-[0_1px_10px_rgb(255,255,255,0.2)] hover:shadow-[0_1px_10px_rgb(255,255,255,0.25)] transition-shadow duration-200 cursor-pointer max-h-[90vh]'>
 
       <div className='flex items-center w-full rounded-full overflow-hidden p-2 '>
         <img src={user} alt="" className='w-10 rounded-full overflow-hidden' />
@@ -19,7 +21,9 @@ const Post = ({ post,deletePost,updatePost}) => {
         </div>
       </div>
 
-      <div className='p-1 px-3 w-full'>
+      <div 
+      
+      className='p-1 px-3 w-full'>
         <p>{post.caption}</p>
       </div>
       {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Post from './components/Post'
 import Addpost from './components/Addpost'
-import posts from './data/datajs'
+import posts from './data/data.js'
 
 const App = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
