@@ -12,3 +12,12 @@ html,body {
 html::-webkit-scrollbar{
   display: none;
 }
+
+html::selection{
+  background-color: white;
+  color: #000000;
+}
+
+textarea::-webkit-scrollbar{
+  display: none;
+}

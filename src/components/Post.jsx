@@ -1,23 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import user from '../assets/user.jpg'
+import Addpost from './Addpost'
 
-const Post = () => {
+const Post = ({ post,deletePost,updatePost}) => {
+  const [isLiked, setIsLiked] = useState(false)
+  
   return (
-    <div className='flex flex-col px-3 py-2 items-center border-gray-400/50 border rounded-xl overflow-hidden shadow-[0_5px_15px_rgb(255,255,255,0.1)] hover:shadow-[0_5px_15px_rgb(255,255,255,0.15)] transition-shadow duration-200 cursor-pointer'>
+    <div className='flex flex-col px-3 py-2  items-center border-gray-400/50 border rounded-2xl overflow-hidden shadow-[0_1px_10px_rgb(255,255,255,0.2)] hover:shadow-[0_1px_10px_rgb(255,255,255,0.25)] transition-shadow duration-200 cursor-pointer max-h-[90vh]'>
 
-        <div className='flex items-center w-full rounded-full overflow-hidden p-2 '>
-            <img src={user} alt="" className='w-10 rounded-full overflow-hidden'/>
-            <div>
-                <h1 className='capitalize px-3 text-xl font-bold'>Pulkit arora</h1>
-                <p className='text-xs text-gray-400 capitalize px-4'>Developer, Bhopal MP</p>
-            </div>
+      <div className='flex items-center w-full rounded-full overflow-hidden p-2 '>
+        <img src={user} alt="" className='w-10 rounded-full overflow-hidden' />
+        <div>
+          <h1 className='capitalize px-3 text-xl font-bold'>{post.name}</h1>
+          <p className='text-xs text-gray-400 capitalize px-4'>
+            {post.role ? post.role : "Developer"}, &nbsp; <i className="ri-map-pin-2-line pr-0.5"></i>  
+            {post.location ? post.location : "Bhopal MP"}
+          </p>
         </div>
-
-      <div>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, vel provident eius laborum explicabo modi sunt. Id earum commodi explicabo asperiores cum cumque, eaque minus dolorem ipsa in reprehenderit.</p>
       </div>
-      <div className='w-90 h-90 overflow-hidden pt-1 rounded-2xl'>
-        <img src="https://i.pinimg.com/736x/14/23/9e/14239e825a5e765854b748c684f77d84.jpg" alt="" className='rounded-2xl'/>
+
+      <div className='p-1 px-3 w-full'>
+        <p>{post.caption}</p>
+      </div>
+      {
+        post.image &&
+        <div className=' overflow-hidden p-2 rounded-2xl w-full'>
+        <img
+          src={post.image}
+          alt="" className='rounded-2xl w-full' />
+      </div>
+      }
+
+      <div className='w-full px-5 pt-1'>
+        <div className='flex w-full text-xl bg-[#030303] rounded-2xl justify-around py-1'>
+          {isLiked ?
+            <i className="ri-heart-fill active:scale-80 transition-transform duration-150" onClick={() => setIsLiked(false)}></i>
+            :
+            <i className="ri-heart-line active:scale-80 transition-transform duration-150" onClick={() => setIsLiked(true)}></i>
+          }
+          <i className="ri-save-line active:scale-80 transition-transform duration-150"></i>
+          <i className="ri-pencil-ai-line active:scale-80 transition-transform duration-150"
+            onClick={() => updatePost(post)}
+          ></i>
+
+          <i className="ri-delete-bin-5-line active:scale-80 transition-transform duration-150" 
+          onClick={() => deletePost(post.id)}></i>
+        </div>
       </div>
     </div>
   )
