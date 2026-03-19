@@ -8,14 +8,7 @@ const App = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [editingPost, setEditingPost] = useState(null)
   const posts = [
-  {
-    id: nanoid(),
-    name: "Arvind Shukla",
-    caption: "Just finished setting up the MERN stack for my new project! Building with React and Vite feels so much faster. Can't wait to deploy this one. #WebDev #CodingLife",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000&auto=format&fit=crop",
-    role: "Full Stack Developer",
-    location: "Bhopal, MP"
-  },
+  
   {
     id: nanoid(),
     name: "Ananya Sharma",
@@ -47,7 +40,15 @@ const App = () => {
     image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop",
     role: "Content Creator",
     location: "Mumbai, MH"
-  }
+  },
+  {
+    id: nanoid(),
+    name: "Arvind Shukla",
+    caption: "Just finished setting up the MERN stack for my new project! Building with React and Vite feels so much faster. Can't wait to deploy this one. #WebDev #CodingLife",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000&auto=format&fit=crop",
+    role: "Full Stack Developer",
+    location: "Bhopal, MP"
+  },
 ];
   const [postArr, setPostArr] = useState(() => {
     const data = localStorage.getItem("posts");
