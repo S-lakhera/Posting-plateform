@@ -3,7 +3,7 @@ import user from '../assets/user.jpg'
 import { useForm } from 'react-hook-form'
 import { nanoid } from 'nanoid'
 
-const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
+const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null, isFormOpen }) => {
 
     const {
         register,
@@ -13,7 +13,7 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
     } = useForm({
         defaultValues: editingPost || {}
     })
-    
+
 
     // console.log(errors.content.message);
     const handleFormSubmit = (data) => {
@@ -30,18 +30,18 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
         setIsFormOpen(false)
     }
 
-
     const handleBackdropClick = (e) => {
         if (e.target === e.currentTarget) {
             setIsFormOpen(false)
         }
     }
 
+
     return (
         <div
             onClick={handleBackdropClick}
             className='fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-xs bg-black/40 ' >
-            <div className='w-lg rounded-2xl mx-2  bg-[#111] px-3 md:px-6 py-12 sm:py-8 relative '>
+            <div className='w-md rounded-2xl mx-2  bg-[#111] px-3 md:px-6 py-12 sm:py-8 relative '>
 
                 <div className=' flex flex-col '>
                     <form
@@ -52,8 +52,8 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
                             <div>
                                 {/* <h1 className='text-xl font-bold tracking-wider capitalize'>Pulkit arora </h1> */}
                                 <input
-                                    
-                                    {...register("name",{required:"Name is Bahut Jaruri"})}
+
+                                    {...register("name", { required: "Name is Bahut Jaruri" })}
                                     type="text"
                                     className='w-full bg-black/30 outline-none pl-5 py-2 rounded-lg text-xl' placeholder='Your Name'
                                 />
@@ -107,9 +107,9 @@ const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null }) => {
                         </div>
                     </form>
                 </div>
-                <div 
-                onClick={() => setIsFormOpen(false)}
-                className='absolute right-3 text-2xl text-gray-400 top-1'>
+                <div
+                    onClick={() => setIsFormOpen(false)}
+                    className='absolute right-3 text-2xl text-gray-400 top-1'>
                     <i className="ri-close-line cursor-pointer"></i>
                 </div>
             </div>
