@@ -8,7 +8,7 @@ const Post = ({ post,deletePost,updatePost}) => {
   return (
     <div 
     onDoubleClick={() => setIsLiked((prev) => !prev)}
-    className='flex flex-col px-3 py-2  items-center border-gray-400/50 border rounded-2xl overflow-hidden shadow-[0_1px_10px_rgb(255,255,255,0.2)] hover:shadow-[0_1px_10px_rgb(255,255,255,0.25)] transition-shadow duration-200 cursor-pointer max-h-[90vh]'>
+    className='flex flex-col px-3 py-2  items-center border-gray-400/50 border rounded-2xl overflow-hidden shadow-[0_1px_10px_rgb(255,255,255,0.2)] hover:shadow-[0_1px_10px_rgb(255,255,255,0.25)] transition-shadow duration-200 cursor-pointer max-h-[90vh] select-none'>
 
       <div className='flex items-center w-full rounded-full overflow-hidden p-2 '>
         <img src={user} alt="" className='w-10 rounded-full overflow-hidden' />
