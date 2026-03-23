@@ -3,7 +3,7 @@ import user from '../assets/user.jpg'
 import { useForm } from 'react-hook-form'
 import { nanoid } from 'nanoid'
 
-const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null, isFormOpen }) => {
+const Addpost = ({ setIsFormOpen, setPostArr, editingPost = null, }) => {
 
     const {
         register,
